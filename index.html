@@ -760,6 +760,10 @@
       background: linear-gradient(135deg, #3a1a2a, #5e2d3a, #c9973a22)
     }
 
+    .img-keycloak {
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #c9973a33)
+    }
+
     /* SVG icon inside each card */
     .wcard-icon {
       position: absolute;
@@ -881,7 +885,7 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 2px;
       margin-top: 40px
     }
@@ -1301,7 +1305,7 @@
           <div class="stat-lbl">App stores<br>published</div>
         </div>
         <div>
-          <div class="stat-num">6<span>+</span></div>
+          <div class="stat-num">7<span>+</span></div>
           <div class="stat-lbl">Live products<br>shipped</div>
         </div>
       </div>
@@ -1335,7 +1339,7 @@
               class="c-dim">],</span></div>
           <div><span class="c-dim">&nbsp;&nbsp;exploring:</span> <span class="c-str">"AI &amp; ML"</span><span
               class="c-dim">,</span></div>
-          <div><span class="c-dim">&nbsp;&nbsp;shipped:</span> <span class="c-val">6</span><span class="c-dim">,</span>
+          <div><span class="c-dim">&nbsp;&nbsp;shipped:</span> <span class="c-val">7</span><span class="c-dim">,</span>
           </div>
           <div><span class="c-dim">&nbsp;&nbsp;learning:</span> <span class="c-fn">always</span><span
               class="c-dim">()</span></div>
@@ -1614,9 +1618,11 @@
             <div class="ch-year">Oct 2023 – Now</div>
             <h3 class="ch-heading">The build.<br><em>Full-stack, full speed.</em></h3>
             <p class="ch-body"><b>FACTS Computer Software House</b> — contributing to <b>FactsERP</b> platform and
-              shipping standalone products. <b>Bakkah</b> (automotive). <b>TeamsTime</b> (Flutter, both app stores).
-              <b>Tatmeen pharma scanner</b>. <b>Accounting software</b>. <b>E-commerce platform</b>. Every project: a
-              new domain, a new challenge. And now — <b>AI is the next chapter.</b></p>
+              shipping standalone products. <b>Bakkah</b> (automotive PWA). <b>TeamsTime</b> (Flutter, both app stores).
+              <b>Tatmeen pharma scanner</b> (now on Windows too). <b>Cloud accounting platform</b>. <b>E-commerce +
+                kiosk</b>. <b>Enterprise SSO with Keycloak</b>. Every project: a new domain, a new challenge. And now —
+              <b>AI is the next chapter.</b>
+            </p>
           </div>
           <div class="ch-line">
             <div class="ch-dot"></div>
@@ -1718,10 +1724,11 @@
           <div class="wcard-overlay">
             <div class="wcard-tag">ERP · UAE · FactsERP</div>
             <div class="wcard-name">ERP Module Development</div>
-            <div class="wcard-desc">Feature development on FactsERP — accounting, sales, inventory, payroll, HR
-              enhancements for enterprise clients.</div>
+            <div class="wcard-desc">Feature development across FactsERP's accounting, sales, inventory, payroll and HR
+              modules — deployed frontend to AWS CloudFront and backend to Elastic Beanstalk, containerized with
+              Docker.</div>
             <div class="wcard-chips"><span class="chip">Next.js</span><span class="chip">Node.js</span><span
-                class="chip">PostgreSQL</span><span class="chip">AWS</span></div>
+                class="chip">CloudFront</span><span class="chip">Docker</span></div>
           </div>
         </a>
 
@@ -1734,11 +1741,11 @@
           <span class="wbadge bl">Live · Production</span>
           <div class="wcard-overlay">
             <div class="wcard-tag">Fintech · SaaS</div>
-            <div class="wcard-name">Accounting Software</div>
-            <div class="wcard-desc">Standalone accounting product — invoicing, VAT compliance, payroll processing,
-              multi-currency reporting.</div>
-            <div class="wcard-chips"><span class="chip">React</span><span class="chip">Node.js</span><span
-                class="chip">PostgreSQL</span></div>
+            <div class="wcard-name">Cloud Accounting Platform</div>
+            <div class="wcard-desc">Multi-tenant double-entry accounting — chart of accounts, AP/AR, banking, UAE VAT
+              returns, granular RBAC with period-close controls, and multi-currency reporting.</div>
+            <div class="wcard-chips"><span class="chip">Next.js</span><span class="chip">PostgreSQL</span><span
+                class="chip">RBAC</span><span class="chip">UAE VAT</span></div>
           </div>
         </a>
 
@@ -1752,12 +1759,12 @@
           </svg>
           <span class="wbadge bl">Live · bakkah.autos</span>
           <div class="wcard-overlay">
-            <div class="wcard-tag">Automotive · UAE</div>
+            <div class="wcard-tag">Automotive · UAE · PWA</div>
             <div class="wcard-name">Bakkah</div>
-            <div class="wcard-desc">Job card management web app — digital job cards, technician assignment, VAT
-              invoicing.</div>
-            <div class="wcard-chips"><span class="chip">React</span><span class="chip">Node.js</span><span
-                class="chip">MongoDB</span></div>
+            <div class="wcard-desc">Installable workshop management PWA — RTA/Salik/mulkiya/insurance vehicle checks,
+              digital job cards, and a quotation → proforma → tax invoice billing workflow.</div>
+            <div class="wcard-chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span
+                class="chip">PWA</span><span class="chip">RTA/Salik</span></div>
           </div>
         </a>
 
@@ -1793,10 +1800,10 @@
           <div class="wcard-overlay">
             <div class="wcard-tag">Pharma · UAE Tatmeen</div>
             <div class="wcard-name">Tatmeen Pharma Scanner</div>
-            <div class="wcard-desc">Used Honeywell SDK to scan medicine barcodes, then called Tatmeen API to post and
-              upload the scanned data for UAE pharma compliance.</div>
-            <div class="wcard-chips"><span class="chip">React</span><span class="chip">Honeywell SDK</span><span
-                class="chip">Tatmeen API</span></div>
+            <div class="wcard-desc">Honeywell SwiftDecoder-based barcode scanning app syncing to the Tatmeen API for
+              UAE pharma compliance — extended from mobile to a Windows desktop target for warehouse workstations.</div>
+            <div class="wcard-chips"><span class="chip">Flutter</span><span class="chip">Honeywell SDK</span><span
+                class="chip">Tatmeen API</span><span class="chip">Windows</span></div>
           </div>
         </a>
 
@@ -1809,12 +1816,33 @@
           </svg>
           <span class="wbadge bl">Live · Production</span>
           <div class="wcard-overlay">
-            <div class="wcard-tag">E-Commerce · Full-Stack</div>
+            <div class="wcard-tag">E-Commerce · Kiosk</div>
             <div class="wcard-name">E-Commerce Platform</div>
-            <div class="wcard-desc">Custom storefront from scratch — product catalogue, order management CMS, secure JWT
-              checkout, AWS deployment.</div>
-            <div class="wcard-chips"><span class="chip">Next.js</span><span class="chip">Node.js</span><span
-                class="chip">MongoDB</span><span class="chip">AWS</span></div>
+            <div class="wcard-desc">Storefront with cart/checkout plus a self-service in-store kiosk mode — delivery
+              address & pickup-point selection, order PDF generation, customer statements.</div>
+            <div class="wcard-chips"><span class="chip">React</span><span class="chip">Kiosk Mode</span><span
+                class="chip">Material UI</span><span class="chip">AWS</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-grid" style="margin-top:2px">
+        <a class="wcard-wide reveal" href="#" style="transition-delay:.35s">
+          <div class="wcard-img-wide img-keycloak"></div>
+          <svg class="wcard-icon" width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <path d="M40 8 L66 20 V38 C66 55 55 66 40 72 C25 66 14 55 14 38 V20 Z" stroke="white" stroke-width="2" />
+            <circle cx="40" cy="36" r="7" stroke="white" stroke-width="2" />
+            <path d="M40 43v10" stroke="white" stroke-width="2" />
+          </svg>
+          <span class="wbadge bs">Backend · IAM</span>
+          <div class="wcard-overlay">
+            <div class="wcard-tag">Identity & Access · Enterprise SSO</div>
+            <div class="wcard-name">Keycloak Custom User Storage Provider</div>
+            <div class="wcard-desc">Custom Keycloak User Storage SPI provider in Java, federating the existing FactsERP
+              SQL Server user database into Keycloak — credential validation, user lookup/registration, and caching for
+              realm-wide SSO without migrating users.</div>
+            <div class="wcard-chips"><span class="chip">Java 17</span><span class="chip">Keycloak</span><span
+                class="chip">JPA/Hibernate</span><span class="chip">SQL Server</span></div>
           </div>
         </a>
       </div>
@@ -1850,7 +1878,13 @@
         <div class="sblock reveal" style="transition-delay:.2s">
           <div class="sblock-icon">△</div>
           <div class="sblock-lbl">Cloud & DevOps</div>
-          <div class="sblock-items">AWS S3<br>Elastic Beanstalk<br>CloudFront<br>Docker<br>CI/CD<br>Git</div>
+          <div class="sblock-items">AWS S3<br>Elastic Beanstalk<br>CloudFront<br>Docker<br>Azure DevOps<br>CI/CD<br>Git
+          </div>
+        </div>
+        <div class="sblock reveal" style="transition-delay:.22s">
+          <div class="sblock-icon">🔐</div>
+          <div class="sblock-lbl">Identity & Auth</div>
+          <div class="sblock-items">Java 17<br>Keycloak<br>OAuth2 / OIDC<br>JPA/Hibernate<br>SQL Server<br>Maven</div>
         </div>
         <div class="sblock reveal"
           style="transition-delay:.25s;border-color:rgba(201,151,58,.3);background:rgba(201,151,58,.05)">
@@ -1933,7 +1967,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Shifana CT · Full-Stack &amp; Flutter Developer · Dubai, UAE</p>
+    <p>© 2026 Shifana CT · Full-Stack &amp; Flutter Developer · Dubai, UAE</p>
     <a href="shifana_resume.html" target="_blank">Download CV →</a>
   </footer>
 
