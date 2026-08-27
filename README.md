@@ -196,7 +196,7 @@ Features include:
 
 ### 💼 Open to Opportunities
 
-I'm open to **Full-Stack Developer** and **Flutter Developer** opportunities in **Dubai/UAE or remote**.
+I'm open to **Full-Stack Developer** and **Flutter Developer** opportunities in **Dubai/UAE Onsite / remote / Hybrid**.
 
 If you're building something interesting, let's connect. 🚀
 
