@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Comet Autos — Case Study | Shifana CT</title>
+  <meta name="description" content="Comet Autos: an AI-powered automotive workshop management platform with Gemini-powered document intelligence and an AI service advisor, built by Shifana CT.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shifana.vercel.app/comet-autos.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230f1c35'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-style='italic' fill='%23c9973a' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --ink: #0a0a0a;
+      --ink2: #2d2d2d;
+      --ink3: #555;
+      --ink4: #999;
+      --paper: #faf9f7;
+      --paper2: #f2f0ec;
+      --gold: #c9973a;
+      --navy: #0f1c35;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden
+    }
+
+    a {
+      color: inherit
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      background: var(--navy);
+      color: #fff;
+      padding: 10px 18px;
+      font-size: 13px;
+      border-radius: 3px;
+      z-index: 1000;
+      text-decoration: none;
+      transition: top .2s
+    }
+
+    .skip-link:focus {
+      top: 12px
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(250, 249, 247, .94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, .06)
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--ink);
+      text-decoration: none
+    }
+
+    .nav-logo span {
+      color: var(--gold)
+    }
+
+    .back-link {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--ink3);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .back-link:hover {
+      color: var(--navy)
+    }
+
+    .cs-hero {
+      background: var(--navy);
+      padding: 80px 72px 60px;
+      color: #fff
+    }
+
+    .cs-hero-inner {
+      max-width: 900px;
+      margin: 0 auto
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4caf7d;
+      box-shadow: 0 0 0 3px rgba(76, 175, 125, .18)
+    }
+
+    .status-text {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: #7fd9a8;
+      letter-spacing: .12em;
+      text-transform: uppercase
+    }
+
+    .cs-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4.4vw, 50px);
+      line-height: 1.1;
+      letter-spacing: -.5px;
+      margin-bottom: 16px
+    }
+
+    .cs-title em {
+      font-style: italic;
+      color: var(--gold)
+    }
+
+    .cs-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, .58);
+      font-weight: 300;
+      max-width: 720px;
+      margin-bottom: 24px
+    }
+
+    .cs-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .cs-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 10px 18px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      color: rgba(255, 255, 255, .8);
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all .2s
+    }
+
+    .cs-links a.primary {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+      font-weight: 500
+    }
+
+    .cs-links a:hover {
+      border-color: var(--gold);
+      color: var(--gold)
+    }
+
+    .cs-links a.primary:hover {
+      background: #e0aa40;
+      color: var(--navy)
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 72px
+    }
+
+    .cs-section {
+      margin-bottom: 56px
+    }
+
+    .cs-section:last-child {
+      margin-bottom: 0
+    }
+
+    .cs-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 12px
+    }
+
+    .cs-h2 {
+      font-family: var(--serif);
+      font-size: 26px;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: -.2px
+    }
+
+    .cs-p {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--ink2);
+      font-weight: 300;
+      max-width: 680px;
+      margin-bottom: 14px
+    }
+
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 28px;
+      margin-top: 8px
+    }
+
+    .feat-item {
+      font-size: 13px;
+      color: var(--ink2);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6
+    }
+
+    .feat-item::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--ink4)
+    }
+
+    .ai-feat-item::before {
+      content: '✓';
+      color: #1d6a45;
+      position: absolute;
+      left: 0
+    }
+
+    .ai-feat-item {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--ink2);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.7
+    }
+
+    .arch-box {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 36px 24px;
+      margin-top: 8px
+    }
+
+    .arch-tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .arch-node {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, .82);
+      background: rgba(255, 255, 255, .045);
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 3px;
+      padding: 9px 18px;
+      text-align: center;
+      white-space: nowrap
+    }
+
+    .arch-node.strong {
+      color: #fff;
+      border-color: rgba(201, 151, 58, .4);
+      background: rgba(201, 151, 58, .06)
+    }
+
+    .arch-node.gold {
+      color: #f4d9a3;
+      border-color: var(--gold);
+      background: rgba(201, 151, 58, .1)
+    }
+
+    .arch-arrow {
+      color: var(--gold);
+      font-size: 15px;
+      padding: 5px 0;
+      opacity: .65;
+      line-height: 1
+    }
+
+    .arch-split {
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 14px;
+      padding: 4px 0;
+      opacity: .55;
+      letter-spacing: .4em
+    }
+
+    .arch-branches {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .arch-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: rgba(0, 0, 0, .18);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 6px;
+      padding: 18px 16px;
+      margin-top: 8px
+    }
+
+    .flow-step {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: rgba(255, 255, 255, .75);
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 3px;
+      padding: 7px 12px;
+      white-space: nowrap
+    }
+
+    .flow-arrow {
+      color: var(--gold);
+      font-size: 13px;
+      padding: 0 8px;
+      opacity: .7
+    }
+
+    .disclaimer {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink3);
+      border-left: 2px solid var(--gold);
+      padding: 4px 0 4px 14px;
+      margin: 16px 0;
+      line-height: 1.6
+    }
+
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 8px
+    }
+
+    .shot-placeholder {
+      border: 1px dashed rgba(0, 0, 0, .18);
+      border-radius: 6px;
+      padding: 24px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      min-height: 130px;
+      justify-content: center
+    }
+
+    .shot-placeholder svg {
+      color: var(--ink4)
+    }
+
+    .shot-placeholder-text {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink4);
+      line-height: 1.5
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px
+    }
+
+    .tech-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 3px 9px;
+      border: 1px solid rgba(0, 0, 0, .12);
+      color: var(--ink3);
+      border-radius: 2px
+    }
+
+    footer {
+      border-top: 1px solid rgba(0, 0, 0, .08);
+      padding: 22px 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--paper);
+      flex-wrap: wrap;
+      gap: 10px
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--ink4)
+    }
+
+    footer a {
+      font-size: 12px;
+      color: var(--gold);
+      text-decoration: none
+    }
+
+    @media(max-width:720px) {
+
+      nav,
+      .cs-hero,
+      main,
+      footer {
+        padding-left: 24px;
+        padding-right: 24px
+      }
+
+      .feat-grid,
+      .shot-grid {
+        grid-template-columns: 1fr
+      }
+
+      .arch-branches {
+        gap: 20px
+      }
+
+      .arch-node {
+        white-space: normal
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <nav>
+    <a class="nav-logo" href="index.html">Shifana<span>.</span></a>
+    <a class="back-link" href="index.html#work">← Back to portfolio</a>
+  </nav>
+
+  <section class="cs-hero">
+    <div class="cs-hero-inner">
+      <div class="status-row">
+        <span class="status-dot"></span>
+        <span class="status-text">Implemented · Live in production</span>
+      </div>
+      <h1 class="cs-title">Comet Autos<br><em>AI-Powered Automotive Platform</em></h1>
+      <p class="cs-desc">An automotive workshop management platform combining customer, vehicle, job-card and workshop workflows with Gemini-powered document intelligence and AI-assisted service workflows.</p>
+      <div class="cs-links">
+        <a class="primary" href="https://bakkah.autos" target="_blank" rel="noopener">Visit bakkah.autos →</a>
+        <a href="index.html#ai-apps">View on portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">Overview</div>
+      <h2 class="cs-h2">AI-powered automotive workshop management</h2>
+      <p class="cs-p">Comet Autos digitizes the day-to-day operations of an automotive workshop — from customer and vehicle intake through job cards, parts and invoicing — and layers Gemini-powered AI directly into the workflow rather than bolting a chatbot on the side.</p>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">Core features</div>
+      <h2 class="cs-h2">The application</h2>
+      <div class="feat-grid">
+        <div class="feat-item">Customer management</div>
+        <div class="feat-item">Vehicle management</div>
+        <div class="feat-item">Job cards</div>
+        <div class="feat-item">Technician assignment</div>
+        <div class="feat-item">Service tracking</div>
+        <div class="feat-item">Parts / inventory</div>
+        <div class="feat-item">Invoicing</div>
+        <div class="feat-item">Workshop workflow</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">AI features — implemented</div>
+      <h2 class="cs-h2">What's actually shipped</h2>
+      <div class="feat-grid">
+        <div class="ai-feat-item">Gemini API integration</div>
+        <div class="ai-feat-item">Multimodal AI (vision + text)</div>
+        <div class="ai-feat-item">Document intelligence</div>
+        <div class="ai-feat-item">Structured AI output (JSON)</div>
+        <div class="ai-feat-item">Emirates ID / Mulkiya / insurance extraction</div>
+        <div class="ai-feat-item">AI automotive service advisor</div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">Technical architecture</div>
+      <h2 class="cs-h2">How it's put together</h2>
+      <div class="arch-box">
+        <div class="arch-tree">
+          <div class="arch-node">Frontend</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">API Layer</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node strong">AI Integration</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">Database</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">Business Modules</div>
+        </div>
+      </div>
+      <div class="tech-tags">
+        <span class="tech-tag">Next.js</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">REST APIs</span>
+        <span class="tech-tag">Gemini API</span>
+        <span class="tech-tag">PWA</span>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">AI architecture</div>
+      <h2 class="cs-h2">Document intelligence &amp; service advisor</h2>
+      <p class="cs-p">Two Gemini-backed flows sit behind the AI Integration layer above: one turns a document photo into structured data the application can act on, the other turns a complaint and vehicle context into technician guidance.</p>
+      <div class="arch-box">
+        <div class="arch-tree">
+          <div class="arch-node">User</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node strong">Comet Autos</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node strong">AI Integration Layer</div>
+          <div class="arch-split">↙&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↘</div>
+          <div class="arch-branches">
+            <div class="arch-branch">
+              <div class="arch-node">Document AI</div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-node gold">Gemini</div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-node">Structured Data</div>
+            </div>
+            <div class="arch-branch">
+              <div class="arch-node">Service Advisor</div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-node gold">Gemini</div>
+              <div class="arch-arrow">↓</div>
+              <div class="arch-node">AI Assistance</div>
+            </div>
+          </div>
+          <div class="arch-split">↘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↙</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node strong">Business Workflow</div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-node">Customers / Vehicles / Job Cards</div>
+        </div>
+      </div>
+
+      <p class="cs-p" style="margin-top:28px"><b style="color:var(--ink)">Document Intelligence</b> — a document image goes through Gemini's multimodal model, comes back as structured JSON, gets validated by the application, and lands in form data feeding the business workflow.</p>
+      <div class="flow" role="img" aria-label="Document Image to Gemini Vision to Structured JSON to Application Validation to Form Data to Business Workflow">
+        <span class="flow-step">Document Image</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Gemini Vision / Multimodal</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Structured JSON</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Application Validation</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Form Data</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Business Workflow</span>
+      </div>
+
+      <p class="cs-p" style="margin-top:28px"><b style="color:var(--ink)">AI Service Advisor</b> — a customer complaint plus vehicle context (make, model, year, mileage) goes to Gemini, which returns possible causes, an inspection checklist and technician tasks.</p>
+      <div class="disclaimer">AI-assisted service guidance for the technician — not autonomous vehicle diagnosis.</div>
+      <div class="flow" role="img" aria-label="Customer Complaint plus Vehicle Context to Gemini to Possible Causes, Inspection Checklist and Technician Tasks">
+        <span class="flow-step">Complaint + Vehicle Context</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Gemini</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Possible Causes</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Inspection Checklist</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Technician Tasks</span>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">Screenshots</div>
+      <h2 class="cs-h2">Product views</h2>
+      <p class="cs-p">Placeholders below — send real screenshots from Comet Autos and they'll replace these directly.</p>
+      <div class="shot-grid">
+        <div class="shot-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="9" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="shot-placeholder-text">Dashboard</span>
+        </div>
+        <div class="shot-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="9" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="shot-placeholder-text">Document scanning</span>
+        </div>
+        <div class="shot-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="9" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="shot-placeholder-text">Extracted fields</span>
+        </div>
+        <div class="shot-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="9" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="shot-placeholder-text">Vehicle page</span>
+        </div>
+        <div class="shot-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="9" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="shot-placeholder-text">AI service advisor</span>
+        </div>
+        <div class="shot-placeholder">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="8" cy="9" r="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M3 15l5-4 4 3 4-5 5 6" stroke="currentColor" stroke-width="1.4"/></svg>
+          <span class="shot-placeholder-text">Job card</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-section">
+      <div class="cs-eyebrow">Currently building</div>
+      <h2 class="cs-h2">What's next</h2>
+      <p class="cs-p"><b style="color:var(--ink)">Automotive Knowledge Assistant</b> (in development) — a retrieval-based system to answer workshop questions from service procedures and internal documentation. Planned: Python, FastAPI, PostgreSQL, pgvector, Gemini.</p>
+      <p class="cs-p"><b style="color:var(--ink)">AI Operations Agent</b> (in development) — an assistant that interacts with customer, vehicle, job-card and inventory workflows through controlled tools. Planned: tool calling, business APIs, database tools, human approval, workflow automation.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Shifana CT · Full-Stack Engineer &amp; AI Application Developer · Dubai, UAE</p>
+    <a href="index.html">← Back to portfolio</a>
+  </footer>
+
+</body>
+
+</html>
