@@ -286,6 +286,8 @@
     .timeline-yarn .thread-twist{fill:none;stroke:#f4dfc5;stroke-width:1.25;stroke-dasharray:.002 .018;stroke-linecap:round;opacity:.95;filter:drop-shadow(0 0 .5px #fff);animation:thread-fall 1.5s linear infinite!important}
     @media(prefers-reduced-motion:reduce){.timeline-yarn .thread-twist{animation:none!important}}
     .hero:after{display:none}
+    /* Later theme layers re-declare the hero as two columns; restore the stacked mobile layout last. */
+    @media(max-width:780px){.hero{grid-template-columns:1fr}.speech{right:0}}
   </style>
 </head>
 <body>
